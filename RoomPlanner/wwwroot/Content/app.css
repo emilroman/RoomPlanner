@@ -1,0 +1,8 @@
+﻿.roomsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.roomsContainer > room {
+    background-color: green;
+}

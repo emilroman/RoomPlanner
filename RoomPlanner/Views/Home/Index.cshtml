@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Room>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>The rooms:</h2>
+
+<div class="roomsContainer">
+    @foreach (var room in Model)
+    {
+        <div class="room">Id = @room.Id, Name = @room.Name, Status = @room.Status</div>
+    }
+</div>
