@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RoomPlanner.Models;
 using Services.Abstractions;
 
 namespace RoomPlanner.Controllers
@@ -18,9 +20,34 @@ namespace RoomPlanner.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var rooms = await _roomService.GetRooms();
+            try
+            {
+                var rooms = await _roomService.GetRooms();
+                return View(rooms);
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
+        }
 
-            return View(rooms);
+        [HttpPost]
+        public async Task<IActionResult> ChangeStatus(ChangeStatusModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                await _roomService.SetStatus(model.RoomId, model.Status);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
     }
 }

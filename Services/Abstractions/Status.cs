@@ -6,6 +6,7 @@ namespace Services.Abstractions
 {
     public enum Status
     {
+        Undefined = 0,
         Liber,
         Ocupat
     }

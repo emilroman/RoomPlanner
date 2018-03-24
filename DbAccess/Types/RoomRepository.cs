@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using DbAccess.Abstractions;
@@ -22,10 +23,10 @@ namespace DbAccess.Types
             return room;
         }
 
-        public async void SetStatus(int roomId, StatusEntity status)
+        public async Task SetStatus(int roomId, StatusEntity status)
         {
             await AccessDatabase();
-
+            
             var room = NotFakeDatabse.Rooms.First(r => r.Id == roomId);
             room.Status = status;
         }

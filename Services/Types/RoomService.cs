@@ -35,10 +35,10 @@ namespace Services.Types
             return room;
         }
 
-        public void SetStatus(int roomId, Status status)
+        public async Task SetStatus(int roomId, Status status)
         {
             var statusEntity = _mapper.Map<StatusEntity>(status);
-            _roomRepository.SetStatus(roomId, statusEntity);
+            await _roomRepository.SetStatus(roomId, statusEntity);
         }
     }
 }

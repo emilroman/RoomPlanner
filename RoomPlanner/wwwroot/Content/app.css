@@ -1,8 +1,35 @@
-﻿.roomsContainer {
+﻿.flex {
     display: flex;
+}
+
+.flex-centered {
     justify-content: center;
 }
 
-.roomsContainer > room {
+.room {
+    width: 300px;
+    height: 600px;
+    margin: 5px;
+}
+
+.room > .btn-group {
+    width: 100%;
+}
+
+.room > .btn-group > .btn {
+    width: 50%;
+}
+
+.room > .roomDisplay {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px 3px 10px 10px;
+}
+
+.room > .roomDisplay.Liber {
     background-color: green;
+}
+
+.room > .roomDisplay.Ocupat {
+    background-color: red;
 }

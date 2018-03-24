@@ -9,6 +9,6 @@ namespace Services.Abstractions
     {
         Task<IEnumerable<Room>> GetRooms();
         Task<Room> GetRoom(int roomId);
-        void SetStatus(int roomId, Status status);
+        Task SetStatus(int roomId, Status status);
     }
 }

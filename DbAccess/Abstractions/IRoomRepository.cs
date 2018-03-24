@@ -7,6 +7,6 @@ namespace DbAccess.Abstractions
     {
         Task<IEnumerable<RoomEntity>> GetRooms();
         Task<RoomEntity> GetRoom(int roomId);
-        void SetStatus(int roomId, StatusEntity status);
+        Task SetStatus(int roomId, StatusEntity status);
     }
 }
